@@ -2,7 +2,7 @@ import { Observable } from 'rxjs';
 import { loggerFactory } from './logger/logger-factory';
 import { META_OPERATOR_NAME_KEY, PipeOperator } from './common/interface';
 
-export function rxDebug<T>(source: Observable<T>): Observable<T> {
+export function rxDebugger<T>(source: Observable<T>): Observable<T> {
   const pipe = source.pipe;
   const logger = loggerFactory();
   source.pipe = function (...operators: PipeOperator[]): Observable<T> {

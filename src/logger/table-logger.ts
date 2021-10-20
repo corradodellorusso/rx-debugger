@@ -14,11 +14,11 @@ export class TableLogger implements Logger {
     return tap({
       error: () => {
         this.entries.push({ operator: ERROR_OPERATOR, date: new Date() });
-        console.table(this.entries);
+        this.print();
       },
       complete: () => {
         this.entries.push({ operator: COMPLETE_OPERATOR, date: new Date() });
-        console.table(this.entries);
+        this.print();
       },
     });
   }
@@ -36,5 +36,10 @@ export class TableLogger implements Logger {
 
   private entry(operator: string): PipeOperator {
     return tap((value) => this.entries.push({ operator, value, date: new Date() }));
+  }
+
+  private print() {
+    const entries = this.entries.map(item => ({...item, date: item.date.toISOString()}));
+    console.table(entries);
   }
 }

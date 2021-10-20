@@ -1,1 +1,2 @@
-export * from './rx-debug';
+export * from './rx-debugger';
+export * from './operators'
