@@ -15,7 +15,7 @@
   ],
   "scripts": {
     "build": "tsc",
-    "release": "np --no-cleanup"
+    "release": "np --no-cleanup --no-tests"
   },
   "devDependencies": {
     "np": "^7.5.0",
