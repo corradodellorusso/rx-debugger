@@ -1,0 +1,22 @@
+{
+  "name": "rx-debug",
+  "version": "0.0.1",
+  "description": "Easily debug rxjs pipes",
+  "author": "Corrado dello Russo",
+  "license": "ISC",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "/dist"
+  ],
+  "scripts": {
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "prettier": "^2.4.1",
+    "typescript": "^4.4.4"
+  },
+  "peerDependencies": {
+    "rxjs": "^7.4.0"
+  }
+}
