@@ -14,12 +14,13 @@
     "/dist"
   ],
   "scripts": {
-    "build": "tsc",
-    "release": "np --no-cleanup --no-tests"
+    "build": "rimraf dist && tsc",
+    "release": "npm run build && np --no-cleanup --no-tests"
   },
   "devDependencies": {
     "np": "^7.5.0",
     "prettier": "^2.4.1",
+    "rimraf": "^3.0.2",
     "typescript": "^4.4.4"
   },
   "peerDependencies": {
