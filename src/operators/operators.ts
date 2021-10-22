@@ -9,14 +9,10 @@ import {
   catchError as catchErrorRxjs,
   combineAll as combineAllRxjs,
   combineLatest as combineLatestRxjs,
-  combineLatestAll as combineLatestAllRxjs,
-  combineLatestWith as combineLatestWithRxjs,
   concat as concatRxjs,
   concatAll as concatAllRxjs,
   concatMap as concatMapRxjs,
   concatMapTo as concatMapToRxjs,
-  concatWith as concatWithRxjs,
-  connect as connectRxjs,
   count as countRxjs,
   debounce as debounceRxjs,
   debounceTime as debounceTimeRxjs,
@@ -31,7 +27,6 @@ import {
   endWith as endWithRxjs,
   every as everyRxjs,
   exhaust as exhaustRxjs,
-  exhaustAll as exhaustAllRxjs,
   exhaustMap as exhaustMapRxjs,
   expand as expandRxjs,
   filter as filterRxjs,
@@ -53,7 +48,6 @@ import {
   mergeMap as mergeMapRxjs,
   mergeMapTo as mergeMapToRxjs,
   mergeScan as mergeScanRxjs,
-  mergeWith as mergeWithRxjs,
   min as minRxjs,
   multicast as multicastRxjs,
   observeOn as observeOnRxjs,
@@ -66,7 +60,6 @@ import {
   publishLast as publishLastRxjs,
   publishReplay as publishReplayRxjs,
   race as raceRxjs,
-  raceWith as raceWithRxjs,
   reduce as reduceRxjs,
   refCount as refCountRxjs,
   repeat as repeatRxjs,
@@ -89,7 +82,6 @@ import {
   switchAll as switchAllRxjs,
   switchMap as switchMapRxjs,
   switchMapTo as switchMapToRxjs,
-  switchScan as switchScanRxjs,
   take as takeRxjs,
   takeLast as takeLastRxjs,
   takeUntil as takeUntilRxjs,
@@ -111,7 +103,6 @@ import {
   withLatestFrom as withLatestFromRxjs,
   zip as zipRxjs,
   zipAll as zipAllRxjs,
-  zipWith as zipWithRxjs,
 } from 'rxjs/operators';
 import { META_OPERATOR_NAME_KEY } from '../common/interface';
 
@@ -134,15 +125,11 @@ export const bufferToggle: typeof bufferToggleRxjs = patchOperator(bufferToggleR
 export const bufferWhen: typeof bufferWhenRxjs = patchOperator(bufferWhenRxjs, 'bufferWhen');
 export const catchError: typeof catchErrorRxjs = patchOperator(catchErrorRxjs, 'catchError');
 export const combineAll: typeof combineAllRxjs = patchOperator(combineAllRxjs, 'combineAll');
-export const combineLatestAll: typeof combineLatestAllRxjs = patchOperator(combineLatestAllRxjs, 'combineLatestAll');
 export const combineLatest: typeof combineLatestRxjs = patchOperator(combineLatestRxjs, 'combineLatest');
-export const combineLatestWith: typeof combineLatestWithRxjs = patchOperator(combineLatestWithRxjs, 'combineLatestWith');
 export const concat: typeof concatRxjs = patchOperator(concatRxjs, 'concat');
 export const concatAll: typeof concatAllRxjs = patchOperator(concatAllRxjs, 'concatAll');
 export const concatMap: typeof concatMapRxjs = patchOperator(concatMapRxjs, 'concatMap');
 export const concatMapTo: typeof concatMapToRxjs = patchOperator(concatMapToRxjs, 'concatMapTo');
-export const concatWith: typeof concatWithRxjs = patchOperator(concatWithRxjs, 'concatWith');
-export const connect: typeof connectRxjs = patchOperator(connectRxjs, 'connect');
 export const count: typeof countRxjs = patchOperator(countRxjs, 'count');
 export const debounce: typeof debounceRxjs = patchOperator(debounceRxjs, 'debounce');
 export const debounceTime: typeof debounceTimeRxjs = patchOperator(debounceTimeRxjs, 'debounceTime');
@@ -160,7 +147,6 @@ export const elementAt: typeof elementAtRxjs = patchOperator(elementAtRxjs, 'ele
 export const endWith: typeof endWithRxjs = patchOperator(endWithRxjs, 'endWith');
 export const every: typeof everyRxjs = patchOperator(everyRxjs, 'every');
 export const exhaust: typeof exhaustRxjs = patchOperator(exhaustRxjs, 'exhaust');
-export const exhaustAll: typeof exhaustAllRxjs = patchOperator(exhaustAllRxjs, 'exhaustAll');
 export const exhaustMap: typeof exhaustMapRxjs = patchOperator(exhaustMapRxjs, 'exhaustMap');
 export const expand: typeof expandRxjs = patchOperator(expandRxjs, 'expand');
 export const filter: typeof filterRxjs = patchOperator(filterRxjs, 'filter');
@@ -182,7 +168,6 @@ export const flatMap: typeof flatMapRxjs = patchOperator(flatMapRxjs, 'flatMap')
 export const mergeMap: typeof mergeMapRxjs = patchOperator(mergeMapRxjs, 'mergeMap');
 export const mergeMapTo: typeof mergeMapToRxjs = patchOperator(mergeMapToRxjs, 'mergeMapTo');
 export const mergeScan: typeof mergeScanRxjs = patchOperator(mergeScanRxjs, 'mergeScan');
-export const mergeWith: typeof mergeWithRxjs = patchOperator(mergeWithRxjs, 'mergeWith');
 export const min: typeof minRxjs = patchOperator(minRxjs, 'min');
 export const multicast: typeof multicastRxjs = patchOperator(multicastRxjs, 'multicast');
 export const observeOn: typeof observeOnRxjs = patchOperator(observeOnRxjs, 'observeOn');
@@ -195,7 +180,6 @@ export const publishBehavior: typeof publishBehaviorRxjs = patchOperator(publish
 export const publishLast: typeof publishLastRxjs = patchOperator(publishLastRxjs, 'publishLast');
 export const publishReplay: typeof publishReplayRxjs = patchOperator(publishReplayRxjs, 'publishReplay');
 export const race: typeof raceRxjs = patchOperator(raceRxjs, 'race');
-export const raceWith: typeof raceWithRxjs = patchOperator(raceWithRxjs, 'raceWith');
 export const reduce: typeof reduceRxjs = patchOperator(reduceRxjs, 'reduce');
 export const repeat: typeof repeatRxjs = patchOperator(repeatRxjs, 'repeat');
 export const repeatWhen: typeof repeatWhenRxjs = patchOperator(repeatWhenRxjs, 'repeatWhen');
@@ -218,7 +202,6 @@ export const subscribeOn: typeof subscribeOnRxjs = patchOperator(subscribeOnRxjs
 export const switchAll: typeof switchAllRxjs = patchOperator(switchAllRxjs, 'switchAll');
 export const switchMap: typeof switchMapRxjs = patchOperator(switchMapRxjs, 'switchMap');
 export const switchMapTo: typeof switchMapToRxjs = patchOperator(switchMapToRxjs, 'switchMapTo');
-export const switchScan: typeof switchScanRxjs = patchOperator(switchScanRxjs, 'switchScan');
 export const take: typeof takeRxjs = patchOperator(takeRxjs, 'take');
 export const takeLast: typeof takeLastRxjs = patchOperator(takeLastRxjs, 'takeLast');
 export const takeUntil: typeof takeUntilRxjs = patchOperator(takeUntilRxjs, 'takeUntil');
@@ -240,4 +223,3 @@ export const windowWhen: typeof windowWhenRxjs = patchOperator(windowWhenRxjs, '
 export const withLatestFrom: typeof withLatestFromRxjs = patchOperator(withLatestFromRxjs, 'withLatestFrom');
 export const zip: typeof zipRxjs = patchOperator(zipRxjs, 'zip');
 export const zipAll: typeof zipAllRxjs = patchOperator(zipAllRxjs, 'zipAll');
-export const zipWith: typeof zipWithRxjs = patchOperator(zipWithRxjs, 'zipWith');
