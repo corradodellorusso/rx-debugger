@@ -2,9 +2,12 @@ import { COMPLETE_OPERATOR, ERROR_OPERATOR, LogEntry, Logger, START_OPERATOR } f
 import { PipeOperator } from '../common/interface';
 import { tap } from 'rxjs';
 
+/**
+ * Gathers all the data, then prints them in a table as soon as the source errors or completes.
+ */
 export class TableLogger implements Logger {
   private readonly entries: LogEntry[];
-  private reportUnpatched: boolean;
+  private reportVanillaOperators: boolean; // To be implemented later
 
   constructor() {
     this.entries = [];
@@ -25,7 +28,7 @@ export class TableLogger implements Logger {
 
   log(name: string): PipeOperator {
     if (name === undefined) {
-      this.reportUnpatched = true;
+      this.reportVanillaOperators = true;
     }
     return this.entry(name);
   }
@@ -39,7 +42,7 @@ export class TableLogger implements Logger {
   }
 
   private print() {
-    const entries = this.entries.map(item => ({...item, date: item.date.toISOString()}));
+    const entries = this.entries.map((item) => ({ ...item, date: item.date.toISOString() }));
     console.table(entries);
   }
 }

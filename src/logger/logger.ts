@@ -12,6 +12,15 @@ export interface LogEntry {
   date?: Date;
 }
 
+export interface LoggerConfig {
+  type?: LoggerType
+}
+
+export enum LoggerType {
+  TABLE,
+  REALTIME,
+}
+
 export const START_OPERATOR = '(start)';
 export const ERROR_OPERATOR = '(error)';
 export const COMPLETE_OPERATOR = '(complete)';
