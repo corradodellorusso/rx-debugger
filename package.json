@@ -8,6 +8,17 @@
     "email": "info@corradodellorusso.it",
     "url": "https://corradodellorusso.it"
   },
+  "keywords": [
+    "rxjs",
+    "reactive",
+    "reactivex",
+    "debug",
+    "debugger",
+    "typescript",
+    "log",
+    "logger",
+    "pipe"
+  ],
   "license": "ISC",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
