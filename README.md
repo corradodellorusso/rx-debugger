@@ -34,6 +34,13 @@ Could it be easier than this?
 - This package is intended for development use. You can use it in production environments at your own risk. 
 - You can find more examples in `example` folder.
 
+### Compatibility
+
+| rx-debugger | rxjs   |
+| ----------- | ------ |
+| ^7.0.0      | ^7.0.0 |
+| ^6.0.0      | ^6.0.0 |
+
 ### FAQ
 
 > **Q**: I have `undefined` entries in my operator column.
