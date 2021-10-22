@@ -1,6 +1,6 @@
 import { COMPLETE_OPERATOR, ERROR_OPERATOR, Logger, START_OPERATOR } from './logger';
 import { PipeOperator } from '../common/interface';
-import { tap } from 'rxjs';
+import { tap } from 'rxjs/operators';
 
 /**
  * Prints event as they happen, without waiting complete or error.

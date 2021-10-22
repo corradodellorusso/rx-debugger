@@ -1,6 +1,6 @@
 import { COMPLETE_OPERATOR, ERROR_OPERATOR, LogEntry, Logger, START_OPERATOR } from './logger';
 import { PipeOperator } from '../common/interface';
-import { tap } from 'rxjs';
+import { tap } from 'rxjs/operators';
 
 /**
  * Gathers all the data, then prints them in a table as soon as the source errors or completes.
