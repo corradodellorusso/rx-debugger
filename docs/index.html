@@ -3,9 +3,11 @@
   <h2>rx-debugger</h2>
 </a>
 
-<a href="#easily-debug-rxjs-pipes" id="easily-debug-rxjs-pipes" style="color: inherit; text-decoration: none;">
-  <h3>Easily debug rxjs pipes</h3>
+<a href="#🔍-easily-debug-rxjs-pipes" id="🔍-easily-debug-rxjs-pipes" style="color: inherit; text-decoration: none;">
+  <h3>🔍 Easily debug rxjs pipes</h3>
 </a>
+<p>🔗 <a href="https://corradodellorusso.github.io/rx-debugger/index.html">Docs</a></p>
+<p>📦 <a href="https://www.npmjs.com/package/rx-debugger">NPM</a></p>
 <p>This package makes it super-easy to understand what goes down your pipes.
 Just type something like this:</p>
 <pre><code class="language-typescript"><span class="hl-0">import</span><span class="hl-1"> { </span><span class="hl-2">rxDebugger</span><span class="hl-1">, </span><span class="hl-2">map</span><span class="hl-1">, </span><span class="hl-2">toArray</span><span class="hl-1"> } </span><span class="hl-0">from</span><span class="hl-1"> </span><span class="hl-3">&#39;rx-debugger&#39;</span><span class="hl-1">;</span><br/><span class="hl-0">import</span><span class="hl-1"> { </span><span class="hl-2">of</span><span class="hl-1"> } </span><span class="hl-0">from</span><span class="hl-1"> </span><span class="hl-3">&#39;rxjs&#39;</span><span class="hl-1">;</span><br/><br/><span class="hl-4">rxDebugger</span><span class="hl-1">(</span><span class="hl-4">of</span><span class="hl-1">(</span><span class="hl-5">1</span><span class="hl-1">, </span><span class="hl-5">2</span><span class="hl-1">, </span><span class="hl-5">3</span><span class="hl-1">))</span><br/><span class="hl-1">  .</span><span class="hl-4">pipe</span><span class="hl-1">(</span><br/><span class="hl-1">    </span><span class="hl-4">map</span><span class="hl-1">((</span><span class="hl-2">item</span><span class="hl-1">) </span><span class="hl-6">=&gt;</span><span class="hl-1"> </span><span class="hl-2">item</span><span class="hl-1"> * </span><span class="hl-5">2</span><span class="hl-1">),</span><br/><span class="hl-1">    </span><span class="hl-4">toArray</span><span class="hl-1">()</span><br/><span class="hl-1">  )</span><br/><span class="hl-1">  .</span><span class="hl-4">subscribe</span><span class="hl-1">();</span>
@@ -62,13 +64,13 @@ Just type something like this:</p>
 </tbody></table>
 <p>Could it be easier than this?</p>
 
-<a href="#configuration" id="configuration" style="color: inherit; text-decoration: none;">
-  <h3>Configuration</h3>
+<a href="#🔧-configuration" id="🔧-configuration" style="color: inherit; text-decoration: none;">
+  <h3>🔧 Configuration</h3>
 </a>
 <p>rx-debugger offers more configuration other than printing the pipe as a table.</p>
 
-<a href="#loggers" id="loggers" style="color: inherit; text-decoration: none;">
-  <h4>Loggers</h4>
+<a href="#🖨️-loggers" id="🖨️-loggers" style="color: inherit; text-decoration: none;">
+  <h4>🖨️ Loggers</h4>
 </a>
 <p>Loggers define how and where debug information will be printed.</p>
 <p>There&#39;s no way to build custom loggers at the moment, but we plan to support this in the near future.</p>
@@ -78,8 +80,8 @@ Just type something like this:</p>
 </code></pre>
 <p>Please refer to <code>example-logger.ts</code>.</p>
 
-<a href="#table-logger" id="table-logger" style="color: inherit; text-decoration: none;">
-  <h5>Table logger</h5>
+<a href="#table-logger-default-⭐" id="table-logger-default-⭐" style="color: inherit; text-decoration: none;">
+  <h5>Table logger (default ⭐)</h5>
 </a>
 <p>Gathers all the data, then prints them in a table (using <code>console.table</code> by default) as soon as the source errors or completes.</p>
 <p>If you expect to use to work with mutable objects adopting a serializer is advised.</p>
@@ -87,11 +89,32 @@ Just type something like this:</p>
 <a href="#real-time-logger" id="real-time-logger" style="color: inherit; text-decoration: none;">
   <h5>Real time logger</h5>
 </a>
-<p>Prints data (using  <code>console.table</code> by default) after each pipe operator does its job, without waiting observable complete or error.</p>
+<p>Prints data (using <code>console.table</code> by default) after each pipe operator does its job, without waiting observable complete or error.</p>
 <p>This logger is advised when debugging long observables or subjects.</p>
 
-<a href="#infos" id="infos" style="color: inherit; text-decoration: none;">
-  <h3>Infos</h3>
+<a href="#🧬-serializers" id="🧬-serializers" style="color: inherit; text-decoration: none;">
+  <h4>🧬 Serializers</h4>
+</a>
+<p>Serializers help serializing/deserializing objects for printing purposes.</p>
+<p>You can implement your own serializer implementing <code>Serializer</code> interface.</p>
+<p>Loggers can be configured while patching the source observable.</p>
+<p>For example:</p>
+<pre><code class="language-typescript"><span class="hl-4">rxDebugger</span><span class="hl-1">(</span><span class="hl-2">source</span><span class="hl-1">, { </span><span class="hl-2">serializer:</span><span class="hl-1"> { </span><span class="hl-2">type:</span><span class="hl-1"> </span><span class="hl-2">JsonSerializer</span><span class="hl-1"> });</span>
+</code></pre>
+<p>Please refer to <code>example-serializer.ts</code>.</p>
+
+<a href="#noop-serializer-default-⭐" id="noop-serializer-default-⭐" style="color: inherit; text-decoration: none;">
+  <h5>NoOp Serializer (default ⭐)</h5>
+</a>
+<p>As you may expect, this does nothing. By default no serialization is made.</p>
+
+<a href="#json-serializer" id="json-serializer" style="color: inherit; text-decoration: none;">
+  <h5>JSON Serializer</h5>
+</a>
+<p>Uses javascript bundled JSON serialization/deserialization.</p>
+
+<a href="#ℹ️-infos" id="ℹ️-infos" style="color: inherit; text-decoration: none;">
+  <h3>ℹ️ Infos</h3>
 </a>
 <ul>
 <li>This package is in early development stages. Any suggestion or help is welcome.</li>
@@ -99,8 +122,8 @@ Just type something like this:</p>
 <li>You can find more examples in <code>example</code> folder.</li>
 </ul>
 
-<a href="#compatibility" id="compatibility" style="color: inherit; text-decoration: none;">
-  <h3>Compatibility</h3>
+<a href="#⚙️-compatibility" id="⚙️-compatibility" style="color: inherit; text-decoration: none;">
+  <h3>⚙️ Compatibility</h3>
 </a>
 <p>This package <strong>does not</strong> use semver for versioning. Our major number follows the one of rxjs.
 Here&#39;s the compatibility table.</p>
@@ -121,8 +144,8 @@ Here&#39;s the compatibility table.</p>
 </tr>
 </tbody></table>
 
-<a href="#faq" id="faq" style="color: inherit; text-decoration: none;">
-  <h3>FAQ</h3>
+<a href="#💬-faq" id="💬-faq" style="color: inherit; text-decoration: none;">
+  <h3>💬 FAQ</h3>
 </a>
 <blockquote>
 <p><strong>Q</strong>: I have <code>undefined</code> entries in my operator column.</p>
