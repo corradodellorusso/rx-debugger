@@ -5,15 +5,20 @@ import { LoggerConfig } from './logger';
 import { SerializerConfig } from './serializer';
 import { serializerFactory } from './serializer/serializer-factory';
 
+/**
+ * Config object to be passed to {@link rxDebugger} function.
+ */
 export interface Config {
   logger?: LoggerConfig;
   serializer?: SerializerConfig;
 }
 
 /**
- *
- * @param source
- * @param config
+ * Patches source observable in order to debug pipes.
+ * Please note that no new observable is created, this function returns original instance patched.
+ * If no config object is provided, the result will be written in console using a table.
+ * @param source observable to patch.
+ * @param config optional config object.
  */
 export function rxDebugger<T>(source: Observable<T>, config?: Config): Observable<T> {
   const pipe = source.pipe;
