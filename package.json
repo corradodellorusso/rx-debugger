@@ -1,6 +1,6 @@
 {
   "name": "rx-debugger",
-  "version": "6.0.0",
+  "version": "6.1.0",
   "description": "Easily debug rxjs pipes",
   "homepage": "https://github.com/corradodellorusso/rx-debugger",
   "author": {
