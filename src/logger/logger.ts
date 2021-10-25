@@ -16,6 +16,7 @@ export interface LogEntry {
 
 export interface LoggerConfig {
   type?: LoggerType;
+  channel?: Console;
 }
 
 export enum LoggerType {

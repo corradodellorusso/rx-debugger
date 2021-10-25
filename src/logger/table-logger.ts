@@ -11,7 +11,7 @@ export class TableLogger implements Logger {
   private readonly entries: LogEntry[];
   private reportVanillaOperators: boolean; // To be implemented later
 
-  constructor(public serializer: Serializer) {
+  constructor(public serializer: Serializer, public channel: Console) {
     this.entries = [];
   }
 
@@ -49,6 +49,6 @@ export class TableLogger implements Logger {
       value: this.serializer.deserialize(item.value),
       date: item.date.toISOString(),
     }));
-    console.table(entries);
+    this.channel.table(entries);
   }
 }

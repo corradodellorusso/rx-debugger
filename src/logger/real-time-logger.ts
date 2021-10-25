@@ -4,10 +4,11 @@ import { tap } from 'rxjs';
 import { Serializer } from '../serializer';
 
 /**
- * Prints event as they happen, without waiting complete or error.
+ * Prints data after each pipe operator does its job, without waiting observable complete or error.
+ * This logger is advised when debugging long observables or subjects.
  */
 export class RealTimeLogger implements Logger {
-  constructor(public serializer: Serializer) {}
+  constructor(public serializer: Serializer, public channel: Console) {}
 
   end(): PipeOperator {
     return tap({
@@ -29,7 +30,7 @@ export class RealTimeLogger implements Logger {
   }
 
   private print(name: string, value: any) {
-    console.log(new Date().toISOString(), name, this.serialization(value));
+    this.channel.log(new Date().toISOString(), name, this.serialization(value));
   }
 
   private serialization(value: any) {

@@ -31,7 +31,7 @@
     "prebuild": "rimraf dist && rimraf docs",
     "build": "tsc",
     "postbuild": "typedoc",
-    "release": "np --no-cleanup --no-tests",
+    "release": "np --no-cleanup",
     "prepare": "husky install"
   },
   "devDependencies": {
