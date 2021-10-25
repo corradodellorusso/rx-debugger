@@ -1,9 +1,11 @@
 import { PipeOperator } from '../common/interface';
+import { Serializer } from '../serializer';
 
 export interface Logger {
   start(): PipeOperator;
   log(name: string): PipeOperator;
   end(): PipeOperator;
+  serializer: Serializer;
 }
 
 export interface LogEntry {
@@ -13,7 +15,7 @@ export interface LogEntry {
 }
 
 export interface LoggerConfig {
-  type?: LoggerType
+  type?: LoggerType;
 }
 
 export enum LoggerType {

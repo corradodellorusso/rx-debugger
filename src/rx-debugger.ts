@@ -1,10 +1,13 @@
-import { Observable } from "rxjs";
-import { loggerFactory } from "./logger/logger-factory";
-import { META_OPERATOR_NAME_KEY, PipeOperator } from "./common/interface";
-import { LoggerConfig } from "./logger";
+import { Observable } from 'rxjs';
+import { loggerFactory } from './logger/logger-factory';
+import { META_OPERATOR_NAME_KEY, PipeOperator } from './common/interface';
+import { LoggerConfig } from './logger';
+import { SerializerConfig } from './serializer';
+import { serializerFactory } from './serializer/serializer-factory';
 
 export interface Config {
   logger?: LoggerConfig;
+  serializer?: SerializerConfig;
 }
 
 /**
@@ -14,7 +17,8 @@ export interface Config {
  */
 export function rxDebugger<T>(source: Observable<T>, config?: Config): Observable<T> {
   const pipe = source.pipe;
-  const logger = loggerFactory(config?.logger);
+  const serializer = serializerFactory(config?.serializer);
+  const logger = loggerFactory(config?.logger, serializer);
   source.pipe = function (...operators: PipeOperator[]): Observable<T> {
     const chain = [];
     chain.push(logger.start());
