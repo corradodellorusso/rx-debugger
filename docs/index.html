@@ -1,0 +1,135 @@
+<!DOCTYPE html><html class="default no-js"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>rx-debugger</title><meta name="description" content="Documentation for rx-debugger"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="assets/style.css"/><link rel="stylesheet" href="assets/highlight.css"/><script async src="assets/search.js" id="search-script"></script></head><body><script>document.body.classList.add(localStorage.getItem("tsd-theme") || "os")</script><header><div class="tsd-page-toolbar"><div class="container"><div class="table-wrap"><div class="table-cell" id="tsd-search" data-base="."><div class="field"><label for="tsd-search-field" class="tsd-widget search no-caption">Search</label><input type="text" id="tsd-search-field"/></div><ul class="results"><li class="state loading">Preparing search index...</li><li class="state failure">The search index is not available</li></ul><a href="index.html" class="title">rx-debugger</a></div><div class="table-cell" id="tsd-widgets"><div id="tsd-filter"><a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a><div class="tsd-filter-group"><div class="tsd-select" id="tsd-filter-visibility"><span class="tsd-select-label">All</span><ul class="tsd-select-list"><li data-value="public">Public</li><li data-value="protected">Public/Protected</li><li data-value="private" class="selected">All</li></ul></div> <input type="checkbox" id="tsd-filter-inherited" checked/><label class="tsd-widget" for="tsd-filter-inherited">Inherited</label><input type="checkbox" id="tsd-filter-externals" checked/><label class="tsd-widget" for="tsd-filter-externals">Externals</label></div></div><a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a></div></div></div></div><div class="tsd-page-title"><div class="container"><h1>rx-debugger</h1></div></div></header><div class="container container-main"><div class="row"><div class="col-8 col-content"><div class="tsd-panel tsd-typography">
+<a href="#rx-debugger" id="rx-debugger" style="color: inherit; text-decoration: none;">
+  <h2>rx-debugger</h2>
+</a>
+
+<a href="#easily-debug-rxjs-pipes" id="easily-debug-rxjs-pipes" style="color: inherit; text-decoration: none;">
+  <h3>Easily debug rxjs pipes</h3>
+</a>
+<p>This package makes it super-easy to understand what goes down your pipes.
+Just type something like this:</p>
+<pre><code class="language-typescript"><span class="hl-0">import</span><span class="hl-1"> { </span><span class="hl-2">rxDebugger</span><span class="hl-1">, </span><span class="hl-2">map</span><span class="hl-1">, </span><span class="hl-2">toArray</span><span class="hl-1"> } </span><span class="hl-0">from</span><span class="hl-1"> </span><span class="hl-3">&#39;rx-debugger&#39;</span><span class="hl-1">;</span><br/><span class="hl-0">import</span><span class="hl-1"> { </span><span class="hl-2">of</span><span class="hl-1"> } </span><span class="hl-0">from</span><span class="hl-1"> </span><span class="hl-3">&#39;rxjs&#39;</span><span class="hl-1">;</span><br/><br/><span class="hl-4">rxDebugger</span><span class="hl-1">(</span><span class="hl-4">of</span><span class="hl-1">(</span><span class="hl-5">1</span><span class="hl-1">, </span><span class="hl-5">2</span><span class="hl-1">, </span><span class="hl-5">3</span><span class="hl-1">))</span><br/><span class="hl-1">  .</span><span class="hl-4">pipe</span><span class="hl-1">(</span><br/><span class="hl-1">    </span><span class="hl-4">map</span><span class="hl-1">((</span><span class="hl-2">item</span><span class="hl-1">) </span><span class="hl-6">=&gt;</span><span class="hl-1"> </span><span class="hl-2">item</span><span class="hl-1"> * </span><span class="hl-5">2</span><span class="hl-1">),</span><br/><span class="hl-1">    </span><span class="hl-4">toArray</span><span class="hl-1">()</span><br/><span class="hl-1">  )</span><br/><span class="hl-1">  .</span><span class="hl-4">subscribe</span><span class="hl-1">();</span>
+</code></pre>
+<p>And you will get this straight in the console:</p>
+<table>
+<thead>
+<tr>
+<th>operator</th>
+<th>value</th>
+<th>date</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>(start)</td>
+<td>1</td>
+<td>2021-10-21T14:20:55.510Z</td>
+</tr>
+<tr>
+<td>map</td>
+<td>2</td>
+<td>2021-10-21T14:20:55.510Z</td>
+</tr>
+<tr>
+<td>(start)</td>
+<td>2</td>
+<td>2021-10-21T14:20:55.510Z</td>
+</tr>
+<tr>
+<td>map</td>
+<td>4</td>
+<td>2021-10-21T14:20:55.510Z</td>
+</tr>
+<tr>
+<td>(start)</td>
+<td>3</td>
+<td>2021-10-21T14:20:55.510Z</td>
+</tr>
+<tr>
+<td>map</td>
+<td>6</td>
+<td>2021-10-21T14:20:55.510Z</td>
+</tr>
+<tr>
+<td>toArray</td>
+<td>[ 2, 4, 6 ]</td>
+<td>2021-10-21T14:20:55.510Z</td>
+</tr>
+<tr>
+<td>(complete)</td>
+<td></td>
+<td>2021-10-21T14:20:55.510Z</td>
+</tr>
+</tbody></table>
+<p>Could it be easier than this?</p>
+
+<a href="#configuration" id="configuration" style="color: inherit; text-decoration: none;">
+  <h3>Configuration</h3>
+</a>
+<p>rx-debugger offers more configuration other than printing the pipe as a table.</p>
+
+<a href="#loggers" id="loggers" style="color: inherit; text-decoration: none;">
+  <h4>Loggers</h4>
+</a>
+<p>Loggers define how and where debug information will be printed.</p>
+<p>There&#39;s no way to build custom loggers at the moment, but we plan to support this in the near future.</p>
+<p>Loggers can be configured while patching the source observable.</p>
+<p>For example:</p>
+<pre><code class="language-typescript"><span class="hl-4">rxDebugger</span><span class="hl-1">(</span><span class="hl-2">source</span><span class="hl-1">, { </span><span class="hl-2">logger:</span><span class="hl-1"> { </span><span class="hl-2">type:</span><span class="hl-1"> </span><span class="hl-2">LoggerType</span><span class="hl-1">.</span><span class="hl-7">REALTIME</span><span class="hl-1"> } });</span>
+</code></pre>
+<p>Please refer to <code>example-logger.ts</code>.</p>
+
+<a href="#table-logger" id="table-logger" style="color: inherit; text-decoration: none;">
+  <h5>Table logger</h5>
+</a>
+<p>Gathers all the data, then prints them in a table (using <code>console.table</code> by default) as soon as the source errors or completes.</p>
+<p>If you expect to use to work with mutable objects adopting a serializer is advised.</p>
+
+<a href="#real-time-logger" id="real-time-logger" style="color: inherit; text-decoration: none;">
+  <h5>Real time logger</h5>
+</a>
+<p>Prints data (using  <code>console.table</code> by default) after each pipe operator does its job, without waiting observable complete or error.</p>
+<p>This logger is advised when debugging long observables or subjects.</p>
+
+<a href="#infos" id="infos" style="color: inherit; text-decoration: none;">
+  <h3>Infos</h3>
+</a>
+<ul>
+<li>This package is in early development stages. Any suggestion or help is welcome.</li>
+<li>This package is intended for development use. You can use it in production environments at your own risk.</li>
+<li>You can find more examples in <code>example</code> folder.</li>
+</ul>
+
+<a href="#compatibility" id="compatibility" style="color: inherit; text-decoration: none;">
+  <h3>Compatibility</h3>
+</a>
+<p>This package <strong>does not</strong> use semver for versioning. Our major number follows the one of rxjs.
+Here&#39;s the compatibility table.</p>
+<table>
+<thead>
+<tr>
+<th>rx-debugger</th>
+<th>rxjs</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>^7.0.0</td>
+<td>^7.0.0</td>
+</tr>
+<tr>
+<td>^6.0.0</td>
+<td>^6.0.0</td>
+</tr>
+</tbody></table>
+
+<a href="#faq" id="faq" style="color: inherit; text-decoration: none;">
+  <h3>FAQ</h3>
+</a>
+<blockquote>
+<p><strong>Q</strong>: I have <code>undefined</code> entries in my operator column.</p>
+<p><strong>A</strong>: All the operators should be imported from <code>rx-debugger</code> package.</p>
+</blockquote>
+<blockquote>
+<p><strong>Q</strong>: Nothing is printed.</p>
+<p><strong>A</strong>: Be sure to patch your source observable using <code>rx-debugger</code> function.</p>
+</blockquote>
+</div></div><div class="col-4 col-menu menu-sticky-wrap menu-highlight"><nav class="tsd-navigation primary"><ul><li class="current"><a href="modules.html">Exports</a></li></ul></nav><nav class="tsd-navigation secondary menu-sticky"><ul><li class="tsd-kind-enum"><a href="enums/LoggerType.html" class="tsd-kind-icon">Logger<wbr/>Type</a></li><li class="tsd-kind-class"><a href="classes/JsonSerializer.html" class="tsd-kind-icon">Json<wbr/>Serializer</a></li><li class="tsd-kind-class"><a href="classes/NoopSerializer.html" class="tsd-kind-icon">Noop<wbr/>Serializer</a></li><li class="tsd-kind-interface"><a href="interfaces/Config.html" class="tsd-kind-icon">Config</a></li><li class="tsd-kind-interface"><a href="interfaces/LoggerConfig.html" class="tsd-kind-icon">Logger<wbr/>Config</a></li><li class="tsd-kind-interface"><a href="interfaces/Serializer.html" class="tsd-kind-icon">Serializer</a></li><li class="tsd-kind-interface"><a href="interfaces/SerializerConfig.html" class="tsd-kind-icon">Serializer<wbr/>Config</a></li><li class="tsd-kind-function tsd-has-type-parameter"><a href="modules.html#rxDebugger" class="tsd-kind-icon">rx<wbr/>Debugger</a></li></ul></nav></div></div></div><footer class="with-border-bottom"><div class="container"><h2>Legend</h2><div class="tsd-legend-group"><ul class="tsd-legend"><li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li><li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li></ul><ul class="tsd-legend"><li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li><li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li></ul></div><h2>Settings</h2><p>Theme <select id="theme"><option value="os">OS</option><option value="light">Light</option><option value="dark">Dark</option></select></p></div></footer><div class="container tsd-generator"><p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p></div><div class="overlay"></div><script src="assets/main.js"></script></body></html>
