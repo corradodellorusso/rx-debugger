@@ -1,4 +1,4 @@
-## rx-debugger 
+## rx-debugger
 
 ### 🔍 Easily debug rxjs pipes
 
@@ -64,7 +64,7 @@ If you expect to use to work with mutable objects adopting a serializer is advis
 
 ##### Real time logger
 
-Prints data (using  `console.table` by default) after each pipe operator does its job, without waiting observable complete or error.
+Prints data (using `console.table` by default) after each pipe operator does its job, without waiting observable complete or error.
 
 This logger is advised when debugging long observables or subjects.
 
@@ -88,7 +88,7 @@ Please refer to `example-serializer.ts`.
 
 As you may expect, this does nothing. By default no serialization is made.
 
-##### JSON Serializer 
+##### JSON Serializer
 
 Uses javascript bundled JSON serialization/deserialization.
 
